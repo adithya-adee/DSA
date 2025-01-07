@@ -3,6 +3,14 @@
         "*.ejs": "html",
         "*.html": "html",
         "xutility": "cpp",
-        "xstring": "cpp"
+        "xstring": "cpp",
+        "format": "cpp",
+        "iostream": "cpp",
+        "ostream": "cpp",
+        "algorithm": "cpp",
+        "iterator": "cpp",
+        "xmemory": "cpp",
+        "initializer_list": "cpp",
+        "utility": "cpp"
     }
 }
