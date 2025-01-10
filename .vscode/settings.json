@@ -11,6 +11,13 @@
         "iterator": "cpp",
         "xmemory": "cpp",
         "initializer_list": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "vector": "cpp",
+        "ios": "cpp",
+        "xiosbase": "cpp",
+        "list": "cpp",
+        "xhash": "cpp",
+        "xtree": "cpp",
+        "cmath": "cpp"
     }
 }
