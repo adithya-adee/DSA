@@ -1,2 +1,5 @@
-.vscode
-a
+.vscode/
+build/
+*.out
+data/*
+Makefile
