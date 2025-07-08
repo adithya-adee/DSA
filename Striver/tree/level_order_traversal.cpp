@@ -1,4 +1,4 @@
-#include "./Striver/tree/binary_tree.h"
+#include "binary_tree.h"
 #include <iostream>
 #include <queue>
 
@@ -43,8 +43,6 @@ int main() {
   s1.inorder(&s1);
   cout << endl;
   s1.postorder(&s1);
-  cout << endl;
-  s1.level_order(&s1);
   cout << endl;
 
   return 0;
