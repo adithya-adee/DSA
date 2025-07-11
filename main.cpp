@@ -1,51 +1,49 @@
-#include "./Striver/tree/binary_tree.h"
+#include "tree/tree_node.hpp"
+#include <algorithm>
+#include <climits>
 #include <iostream>
-#include <queue>
+#include <vector>
 
 using namespace std;
 
-template <typename T> void Node<T>::level_order(Node *root) {
+class Solution {
+public:
+  bool isSameTree(TreeNode *p, TreeNode *q) {
+    vector<TreeNode *> p1;
+    inorder(p, p1);
 
-  if (!root) {
-    cout << "Root is null" << endl;
-    return;
-  }
-  queue<Node *> q;
+    vector<TreeNode *> q1;
+    inorder(q, q1);
 
-  q.push(root);
-  while (!q.empty()) {
-    Node *current = q.front();
-    if (current->left) {
-      q.push(current->left);
+    if (p1.size() != q1.size())
+      return false;
+
+    for (int i = 0; i < p1.size(); i++) {
+      if (p1[i]->val != q1[i]->val) {
+        return false;
+      }
     }
-    if (current->right) {
-      q.push(current->right);
-    }
-
-    cout << current->val << " ";
-    q.pop();
+    return true;
   }
-}
+
+  void inorder(TreeNode *root, vector<TreeNode *> &store) {
+    if (!root)
+      return;
+    inorder(root->left, store);
+    store.push_back(root);
+    inorder(root->right, store);
+  }
+};
 
 int main() {
 
-  Node<int> s1(1);
-  s1.left = new Node<int>(2);
-  s1.left->right = new Node<int>(5);
-  s1.left->left = new Node<int>(4);
-  s1.right = new Node<int>(3);
+  TreeNode s1(1);
+  s1.left = new TreeNode(2);
+  TreeNode s2(1);
+  s2.left = new TreeNode(2);
 
-  s1.right->right = new Node<int>(7);
-  s1.right->left = new Node<int>(6);
-
-  s1.preorder(&s1);
-  cout << endl;
-  s1.inorder(&s1);
-  cout << endl;
-  s1.postorder(&s1);
-  cout << endl;
-  s1.level_order(&s1);
-  cout << endl;
+  Solution s3;
+  cout << s3.isSameTree(&s1, &s2);
 
   return 0;
 }
